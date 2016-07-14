@@ -1,11 +1,11 @@
-import {RouterConfig, provideRouter} from '@angular/router';
+import {RouterConfig, provideRouter} from "@angular/router";
 
-import {HelloComponent} from './hello/hello';
-import {CHILD_ROUTERS} from './childrouter/childrouter';
+import {HelloComponent} from "./hello/hello";
+import {CHILD_ROUTERS} from "./childrouter/childrouter";
 
 const routes: RouterConfig = [
-    { path: 'hello', component: HelloComponent },
-    { path: '', redirectTo: 'hello' , pathMatch:'full'},
+    { path: "hello", component: HelloComponent },
+    { path: "", redirectTo: "hello" , pathMatch: "full"},
 
     ...CHILD_ROUTERS,
 ];

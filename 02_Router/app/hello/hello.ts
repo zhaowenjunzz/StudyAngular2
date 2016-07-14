@@ -1,7 +1,7 @@
-import HelloComponent from './component/hello.component';
+import HelloComponent from "./component/hello.component";
 
-const HELLO_DIRECTIVES:any[] = [
-    HelloComponent
+const HELLO_DIRECTIVES: any[] = [
+    HelloComponent,
 ];
 
 export {

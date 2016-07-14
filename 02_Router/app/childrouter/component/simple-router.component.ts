@@ -1,30 +1,29 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {Subscription} from 'rxjs';
+import { Component, OnInit, OnDestroy} from "@angular/core";
+import {Router, ActivatedRoute} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
-    selector: 'simple-router',
-    templateUrl: 'app/childrouter/component/child-router.component.html'
+    selector: "simple-router",
+    templateUrl: "app/childrouter/component/child-router.component.html",
 })
 export default class SimpleRouterComponent implements OnInit, OnDestroy {
 
-    urlString: string;
-    paramsString: string;
-    dataString: string;
+    public urlString: string;
+    public paramsString: string;
+    public dataString: string;
 
-    componentString: string;
-    outletString: string;
-    //snapshotString:string;
+    public componentString: string;
+    public outletString: string;
 
-    routeUrl: string
-    queryParamsString: string;
-    fragment: string;
+    public routeUrl: string;
+    public queryParamsString: string;
+    public fragment: string;
 
-    paramsSub: Subscription;
-    urlSub: Subscription;
-    dataSub: Subscription;
-    queryParamsSub: Subscription;
-    fragmentSub: Subscription;
+    private paramsSub: Subscription;
+    private urlSub: Subscription;
+    private dataSub: Subscription;
+    private queryParamsSub: Subscription;
+    private fragmentSub: Subscription;
 
     constructor(
         private route: ActivatedRoute,
@@ -32,7 +31,7 @@ export default class SimpleRouterComponent implements OnInit, OnDestroy {
 
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.paramsSub = this.route.params.subscribe(params => {
             this.paramsString = JSON.stringify(params);
         });
@@ -58,7 +57,7 @@ export default class SimpleRouterComponent implements OnInit, OnDestroy {
         });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.paramsSub.unsubscribe();
         this.urlSub.unsubscribe();
         this.dataSub.unsubscribe();
