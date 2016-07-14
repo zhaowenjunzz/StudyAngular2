@@ -1,0 +1,20 @@
+.navbar{
+    margin-bottom: 0px;
+    border-radius: 0;
+}
+
+.sidebar{
+    padding-top: 10px;
+    background-color: #f1f1f1;
+    height: 90%;
+}
+
+.under-fix-navi{
+    margin-top: 50px;
+}
+
+footer{
+    background-color: #555;
+    color: white;
+    padding: 15px;
+}
