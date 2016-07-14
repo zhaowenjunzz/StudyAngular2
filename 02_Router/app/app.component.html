@@ -5,14 +5,7 @@
 <div class="container-fluid under-fix-navi">
     <div class="row">
         <div class="col-xs-2 sidebar">
-            <ul>
-                <li><a [routerLink]="['/hello']">Hello</a></li>
-                <li><a [routerLink]="['/router/simple']">Simple Child Router</a></li>
-                <li><a [routerLink]="['/router/simple/9']">Route With Url Param</a></li>
-                <li><a [routerLink]="['/router/simple']" [queryParams]="{a:1,b:2}">Route With Url Query Param</a></li>
-                <li><a [routerLink]="['/router/simple/8']" [queryParams]="{a:3,b:4}">Route With all Query Param</a></li>
-                <li><a [routerLink]="['/router/simple/7']" [queryParams]="{a:5,b:6}" [fragment]="'fffffff'">Route With fragment</a></li>
-            </ul>
+            <study-menu></study-menu>
         </div>
         <div class="col-xs-10">
             <router-outlet></router-outlet>
