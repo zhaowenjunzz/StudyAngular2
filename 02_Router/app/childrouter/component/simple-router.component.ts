@@ -1,12 +1,15 @@
 import { Component, OnInit, OnDestroy} from "@angular/core";
 import {Router, ActivatedRoute} from "@angular/router";
-import {Subscription} from "rxjs";
+import {Subscription} from "rxjs/Subscription";
+import {Observable} from "rxjs/Observable";
+import {PageLogService} from "../../shared/shared";
+import {ICanComponentDeactivate} from "../routers/child-router-guards";
 
 @Component({
     selector: "simple-router",
     templateUrl: "app/childrouter/component/child-router.component.html",
 })
-export default class SimpleRouterComponent implements OnInit, OnDestroy {
+export default class SimpleRouterComponent implements OnInit, OnDestroy, ICanComponentDeactivate {
 
     public urlString: string;
     public paramsString: string;
@@ -27,11 +30,20 @@ export default class SimpleRouterComponent implements OnInit, OnDestroy {
 
     constructor(
         private route: ActivatedRoute,
-        private router: Router) {
+        private router: Router,
+        private _log: PageLogService) {
 
     }
 
+    public canDeactivate(): boolean | Observable<boolean> {
+        console.log("canDeactivate called!");
+        return true;
+    }
+
     public ngOnInit(): void {
+
+        this._log.debug("ngOnInit start.");
+
         this.paramsSub = this.route.params.subscribe(params => {
             this.paramsString = JSON.stringify(params);
         });
@@ -55,13 +67,19 @@ export default class SimpleRouterComponent implements OnInit, OnDestroy {
         this.fragmentSub = this.router.routerState.fragment.subscribe(fragment => {
             this.fragment = fragment;
         });
+
+        this._log.debug("ngOnInit end.");
     }
 
     public ngOnDestroy(): void {
+        this._log.debug("ngOnDestroy start.");
+
         this.paramsSub.unsubscribe();
         this.urlSub.unsubscribe();
         this.dataSub.unsubscribe();
         this.queryParamsSub.unsubscribe();
         this.fragmentSub.unsubscribe();
+
+        this._log.debug("ngOnDestroy end.");
     }
 }

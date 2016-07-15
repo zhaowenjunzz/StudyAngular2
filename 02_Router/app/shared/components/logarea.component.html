@@ -1,0 +1,14 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-primary" (click)="clearAll()">clear all</button>
+  <button type="button" class="btn btn-success" (click)="clearDebug()">clear debug</button>
+  <button type="button" class="btn btn-info" (click)="clearInfo()">clear info</button>
+  <button type="button" class="btn btn-warning" (click)="clearWarning()">clear warning</button>
+  <button type="button" class="btn btn-danger" (click)="clearError()">clear error</button>
+</div>
+<div class="log-area" #scrollItem>
+    <div *ngFor="let logInfo of logInfos" class="alert log-message" 
+    [ngClass]="{'alert-success':logInfo.isDebug, 'alert-info':logInfo.isInfo,'alert-warning':logInfo.isWarning,'alert-danger':logInfo.isError}">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="$event.preventDefault();close(logInfo)">&times;</a> 
+       {{logInfo.time|date:'yyyy/MM/dd HH:mm:ss'}}&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{logInfo.levelDisplay}}:</strong>&nbsp;&nbsp;&nbsp;&nbsp;{{logInfo.message|json}}
+    </div>
+</div>
