@@ -1,0 +1,67 @@
+<h1>Test Simple Form With Template Driven.</h1>
+
+<div class="container">
+    <h2>test form</h2>
+    <form role="form" novalidate *ngIf="active && !submitted" (ngSubmit)="onSubmit()" #currentForm="ngForm">
+        <div class="form-group">
+            <label for="uname">Name:</label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter name" [(ngModel)]="myForm.name" name="name" required
+                #nameSpy #name="ngModel">
+        </div>
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            Name is required
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" [(ngModel)]="myForm.isSaved" name="isSaved">Remember me</label>
+        </div>
+
+        <div class="form-group">
+            <label for="sel1">Select Code:</label>
+            <select class="form-control" id="sel1" [(ngModel)]="myForm.selectedCode" name="selectedCode">
+                <option *ngFor="let c of codes" [value]="c">value: {{c}}</option>
+             </select>
+        </div>
+
+        <div class="radio">
+            <label><input type="radio" name="optradio" value="v1" [(ngModel)]="myForm.option">Option 1</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio" value="v2" [(ngModel)]="myForm.option">Option 2</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio" value="v3" [(ngModel)]="myForm.option">Option 3</label>
+        </div>
+
+        <button type="submit" class="btn btn-default" [disabled]="!currentForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="reset()">Reset</button>
+
+        <div>
+            model: {{myForm|json}}
+        </div>
+        <div>
+            class: {{nameSpy.className|json}}
+        </div>
+    </form>
+    <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+            <div class="col-xs-3">Name</div>
+            <div class="col-xs-9  pull-left">{{ myForm.name }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Is Saved</div>
+            <div class="col-xs-9 pull-left">{{ myForm.isSaved }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Selected Code</div>
+            <div class="col-xs-9 pull-left">{{ myForm.selectedCode }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Option</div>
+            <div class="col-xs-9 pull-left">{{ myForm.option }}</div>
+        </div>
+        <br>
+        <button class="btn btn-default" (click)="submitted=false">Edit</button>
+    </div>
+</div>
