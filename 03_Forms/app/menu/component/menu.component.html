@@ -1,0 +1,21 @@
+<section>
+    <header class="text-success">
+        <h4>Hello World.</h4>
+    </header>
+    <ul>
+        <li><a [routerLink]="['/hello']">Hello</a></li>
+    </ul>
+</section>
+
+<section>
+    <header class="text-success">
+        <h4>Router Test.</h4>
+    </header>
+    <ul>
+        <li><a [routerLink]="['/router/simple']">Simple Child Router</a></li>
+        <li><a [routerLink]="['/router/simple/9']">Route With Url Param</a></li>
+        <li><a [routerLink]="['/router/simple']" [queryParams]="{a:1,b:2}">Route With Url Query Param</a></li>
+        <li><a [routerLink]="['/router/simple/8']" [queryParams]="{a:3,b:4}">Route With all Query Param</a></li>
+        <li><a [routerLink]="['/router/simple/7']" [queryParams]="{a:5,b:6}" [fragment]="'fffffff'">Route With fragment</a></li>
+    </ul>
+</section>
