@@ -1,6 +1,7 @@
 import {RouterConfig} from "@angular/router";
 import FormsCenterComponent from "../component/forms-center.component";
 import SimpleFormComponent from "../component/simple-form.component";
+import DynamicFormComponent from "../component/dynamic-form.component";
 
 const FORMS_ROUTERS: RouterConfig = [
     {
@@ -8,6 +9,7 @@ const FORMS_ROUTERS: RouterConfig = [
         component: FormsCenterComponent,
         children: [
             { path: "simple", component: SimpleFormComponent },
+            { path: "dynamic", component: DynamicFormComponent },
         ],
     },
 ];

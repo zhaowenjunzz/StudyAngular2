@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {ITemplateForm, MyTemplateForm} from "../interfaces/template-form";
 
 @Component({
-    selector: "simple-forms",
+    selector: "simple-form",
     templateUrl: "app/forms/component/simple-form.component.html",
     styleUrls: ["app/forms/component/simple-form.component.css"],
 })
