@@ -4,6 +4,7 @@ import {Subscription} from "rxjs/Subscription";
 
 import {IDynamicForm, MyDynamicForm} from "../interfaces/dynamic-form";
 import CustomValidator from "../validators/custom-validators";
+import {DialogService} from "../../shared/shared";
 
 @Component({
     selector: "dynamic-form",
@@ -27,7 +28,9 @@ export default class DynamicFormComponent implements OnInit, OnDestroy {
 
     private formValueChangeSub: Subscription;
 
-    constructor(private fb: FormBuilder) {
+    constructor(
+        private fb: FormBuilder,
+        private dg: DialogService) {
         this.buildForm();
     }
 
@@ -54,6 +57,10 @@ export default class DynamicFormComponent implements OnInit, OnDestroy {
             this.buildForm();
             this.active = true;
         });
+    }
+
+    public showDialog(): void {
+        this.dg.showDialog();
     }
 
     private buildForm(): void {
