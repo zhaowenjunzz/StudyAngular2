@@ -48,6 +48,7 @@ export default class DynamicFormComponent implements OnInit, OnDestroy {
         this.submitted = true;
 
         this.myModel.name = this.myForm.find("name").value;
+        this.myModel.confirmName = this.myForm.find("confirmName").value;
     }
 
     public reset(): void {
