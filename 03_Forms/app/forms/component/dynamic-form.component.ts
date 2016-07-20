@@ -74,6 +74,10 @@ export default class DynamicFormComponent implements OnInit, OnDestroy {
             } else {
                 console.log("canceled.");
             }
+        }, (error) => {
+            console.log("some error" + error);
+        }, () => {
+            console.log("complete!");
         });
     }
 
