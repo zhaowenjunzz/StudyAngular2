@@ -1,5 +1,7 @@
 import LogLevel from "./enums/loglevel";
 import IlogInfo from "./interfaces/loginfo";
+import IDialogShowEventArg from "./interfaces/dialogShowEventArg";
+import IDialogPostEventArg from "./interfaces/dialogPostEventArg";
 import PageLogService from "./services/pagelog.service";
 import LogAreaComponent from "./components/logarea.component";
 import DialogComponent from "./components/dialog.component";
@@ -18,6 +20,8 @@ const SHARED_DIRECTIVES: any[] = [
 export {
 LogLevel,
 IlogInfo,
+IDialogShowEventArg,
+IDialogPostEventArg,
 
 SHARED_PROVIDERS,
 

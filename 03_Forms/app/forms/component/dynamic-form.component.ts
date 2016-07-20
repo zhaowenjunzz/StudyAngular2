@@ -60,7 +60,21 @@ export default class DynamicFormComponent implements OnInit, OnDestroy {
     }
 
     public showDialog(): void {
-        this.dg.showDialog();
+        this.dg.showDialog({
+            header: "Dynamic Form Submit.",
+            bodyDescription: "submit edited Content.",
+            confirmButtonText: "Submit",
+            cancelButtonText: "Cancel",
+            useConfirm: true,
+            useCancel: true,
+        }).subscribe(event => {
+            if (event.eventType === "confirm") {
+                this.onSubmit();
+                console.log("submitted");
+            } else {
+                console.log("canceled.");
+            }
+        });
     }
 
     private buildForm(): void {

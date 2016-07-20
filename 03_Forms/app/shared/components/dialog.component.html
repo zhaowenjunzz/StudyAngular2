@@ -1,15 +1,16 @@
-<div class="modal fade" id="myModal" role="dialog" [ngClass]="{'in':show}" [style.display]="show?'block':'none'" #spy>
+<div *ngIf="show" class="modal fade" id="myModal" role="dialog" [ngClass]="{'in':show}" [style.display]="show?'block':'none'">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" (click)="closeDialog()">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <button type="button" class="close" data-dismiss="modal" (click)="cancelDialog()">&times;</button>
+                <h4 class="modal-title">{{showConfig.header}}</h4>
             </div>
             <div class="modal-body">
-                <p>This is a small modal.</p>
+                <p>{{showConfig.bodyDescription}}</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closeDialog()">Close</button>
+                <button *ngIf="showConfig.useConfirm" type="button" class="btn btn-default" data-dismiss="modal" (click)="confirmDialog()">{{showConfig.confirmButtonText}}</button>
+                <button *ngIf="showConfig.useCancel" type="button" class="btn btn-default" data-dismiss="modal" (click)="cancelDialog()">{{showConfig.cancelButtonText}}</button>
             </div>
         </div>
     </div>
