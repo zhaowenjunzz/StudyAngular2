@@ -6,6 +6,7 @@ import PageLogService from "./services/pagelog.service";
 import LogAreaComponent from "./components/logarea.component";
 import DialogComponent from "./components/dialog.component";
 import DialogService from "./services/dialog.service";
+import SimpleTooltipDirective from "./directives/simple-tooltip.directive";
 
 const SHARED_PROVIDERS: any[] = [
     PageLogService,
@@ -15,6 +16,7 @@ const SHARED_PROVIDERS: any[] = [
 const SHARED_DIRECTIVES: any[] = [
     LogAreaComponent,
     DialogComponent,
+    SimpleTooltipDirective,
 ];
 
 export {
@@ -32,4 +34,5 @@ DialogService,
 
 LogAreaComponent,
 DialogComponent,
+SimpleTooltipDirective,
 };

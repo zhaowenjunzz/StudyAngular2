@@ -4,13 +4,13 @@ import {Subscription} from "rxjs/Subscription";
 
 import {IDynamicForm, MyDynamicForm} from "../interfaces/dynamic-form";
 import CustomValidator from "../validators/custom-validators";
-import {DialogService} from "../../shared/shared";
+import {DialogService, SimpleTooltipDirective} from "../../shared/shared";
 
 @Component({
     selector: "dynamic-form",
     templateUrl: "app/forms/component/dynamic-form.component.html",
     styleUrls: ["app/forms/component/simple-form.component.css"],
-    directives: [REACTIVE_FORM_DIRECTIVES],
+    directives: [REACTIVE_FORM_DIRECTIVES, SimpleTooltipDirective],
 })
 export default class DynamicFormComponent implements OnInit, OnDestroy {
 
