@@ -26,7 +26,7 @@ export default class SimpleTooltipDirective implements OnDestroy {
             div.innerHTML = this.tooltipMessage;
 
             this._div = div;
-            document.documentElement.appendChild(div);
+            document.body.appendChild(div);
         }
     }
 
@@ -40,7 +40,7 @@ export default class SimpleTooltipDirective implements OnDestroy {
     }
 
     private removeTooltip(): void {
-        document.documentElement.removeChild(this._div);
+        document.body.removeChild(this._div);
         this._div = null;
     }
 }
